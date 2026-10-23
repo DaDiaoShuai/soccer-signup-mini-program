@@ -1,0 +1,4 @@
+/* pages/index/index.wxss */
+.index-map {
+  height: 720rpx;
+}

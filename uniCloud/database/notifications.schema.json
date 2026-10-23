@@ -1,0 +1,24 @@
+{
+  "bsonType": "object",
+  "description": "通知（云函数写入，小程序经 api 读取）",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "userId": {
+      "bsonType": "string",
+      "description": ""
+    },
+    "type": {
+      "bsonType": "string",
+      "description": ""
+    },
+    "createdAt": {
+      "bsonType": "timestamp",
+      "description": ""
+    }
+  }
+}

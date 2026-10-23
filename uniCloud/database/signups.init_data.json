@@ -1,0 +1,200 @@
+[
+  {
+    "_id": "s_u1",
+    "gameId": "g1",
+    "userId": "u1",
+    "type": "confirmed",
+    "status": "confirmed",
+    "signedAt": 1792765860000,
+    "cancelledAt": null,
+    "outcome": null,
+    "settledAt": null
+  },
+  {
+    "_id": "s_u2",
+    "gameId": "g1",
+    "userId": "u2",
+    "type": "confirmed",
+    "status": "confirmed",
+    "signedAt": 1792765920000,
+    "cancelledAt": null,
+    "outcome": null,
+    "settledAt": null
+  },
+  {
+    "_id": "s_u3",
+    "gameId": "g1",
+    "userId": "u3",
+    "type": "confirmed",
+    "status": "confirmed",
+    "signedAt": 1792765980000,
+    "cancelledAt": null,
+    "outcome": null,
+    "settledAt": null
+  },
+  {
+    "_id": "s_u4",
+    "gameId": "g1",
+    "userId": "u4",
+    "type": "confirmed",
+    "status": "confirmed",
+    "signedAt": 1792766040000,
+    "cancelledAt": null,
+    "outcome": null,
+    "settledAt": null
+  },
+  {
+    "_id": "s_u5",
+    "gameId": "g1",
+    "userId": "u5",
+    "type": "confirmed",
+    "status": "confirmed",
+    "signedAt": 1792766100000,
+    "cancelledAt": null,
+    "outcome": null,
+    "settledAt": null
+  },
+  {
+    "_id": "s_u6",
+    "gameId": "g1",
+    "userId": "u6",
+    "type": "confirmed",
+    "status": "confirmed",
+    "signedAt": 1792766160000,
+    "cancelledAt": null,
+    "outcome": null,
+    "settledAt": null
+  },
+  {
+    "_id": "s_u7",
+    "gameId": "g1",
+    "userId": "u7",
+    "type": "confirmed",
+    "status": "confirmed",
+    "signedAt": 1792766220000,
+    "cancelledAt": null,
+    "outcome": null,
+    "settledAt": null
+  },
+  {
+    "_id": "s_u8",
+    "gameId": "g1",
+    "userId": "u8",
+    "type": "confirmed",
+    "status": "confirmed",
+    "signedAt": 1792766280000,
+    "cancelledAt": null,
+    "outcome": null,
+    "settledAt": null
+  },
+  {
+    "_id": "s_u9",
+    "gameId": "g1",
+    "userId": "u9",
+    "type": "confirmed",
+    "status": "confirmed",
+    "signedAt": 1792766340000,
+    "cancelledAt": null,
+    "outcome": null,
+    "settledAt": null
+  },
+  {
+    "_id": "s_u10",
+    "gameId": "g1",
+    "userId": "u10",
+    "type": "confirmed",
+    "status": "confirmed",
+    "signedAt": 1792766400000,
+    "cancelledAt": null,
+    "outcome": null,
+    "settledAt": null
+  },
+  {
+    "_id": "s_u11",
+    "gameId": "g1",
+    "userId": "u11",
+    "type": "confirmed",
+    "status": "confirmed",
+    "signedAt": 1792766460000,
+    "cancelledAt": null,
+    "outcome": null,
+    "settledAt": null
+  },
+  {
+    "_id": "s_u12",
+    "gameId": "g1",
+    "userId": "u12",
+    "type": "confirmed",
+    "status": "confirmed",
+    "signedAt": 1792766520000,
+    "cancelledAt": null,
+    "outcome": null,
+    "settledAt": null
+  },
+  {
+    "_id": "s_u13",
+    "gameId": "g1",
+    "userId": "u13",
+    "type": "watching",
+    "status": "watching",
+    "signedAt": 1792769400000,
+    "cancelledAt": null,
+    "outcome": null,
+    "settledAt": null
+  },
+  {
+    "_id": "s_u14",
+    "gameId": "g1",
+    "userId": "u14",
+    "type": "watching",
+    "status": "watching",
+    "signedAt": 1792769400000,
+    "cancelledAt": null,
+    "outcome": null,
+    "settledAt": null
+  },
+  {
+    "_id": "s2_u1",
+    "gameId": "g2",
+    "userId": "u1",
+    "type": "confirmed",
+    "status": "confirmed",
+    "signedAt": 1792781100000,
+    "cancelledAt": null,
+    "outcome": null,
+    "settledAt": null
+  },
+  {
+    "_id": "s2_u2",
+    "gameId": "g2",
+    "userId": "u2",
+    "type": "confirmed",
+    "status": "confirmed",
+    "signedAt": 1792781100000,
+    "cancelledAt": null,
+    "outcome": null,
+    "settledAt": null
+  },
+  {
+    "_id": "s2_u3",
+    "gameId": "g2",
+    "userId": "u3",
+    "type": "confirmed",
+    "status": "confirmed",
+    "signedAt": 1792781100000,
+    "cancelledAt": null,
+    "outcome": null,
+    "settledAt": null
+  },
+  {
+    "_id": "s2_u4",
+    "gameId": "g2",
+    "userId": "u4",
+    "type": "confirmed",
+    "status": "confirmed",
+    "signedAt": 1792781100000,
+    "cancelledAt": null,
+    "outcome": null,
+    "settledAt": null
+  }
+]

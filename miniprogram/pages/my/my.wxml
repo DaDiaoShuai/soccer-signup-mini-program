@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="title">我的球局</view>
+  <view class="sub">我发起的和我报名的都在这里，待裁决的申诉会在对应球局里提醒</view>
+
+  <view wx:if="{{loading}}" class="card gap"><text class="sub">加载中…</text></view>
+  <view wx:elif="{{groups.length === 0}}" class="card gap">
+    <view class="empty">还没有参加过任何球局</view>
+    <button class="btn" bindtap="goCreate">发起第一场</button>
+  </view>
+
+  <block wx:else>
+    <view wx:for="{{groups}}" wx:key="key" wx:for-item="group">
+      <view class="section-title gap">{{group.title}}</view>
+      <view wx:for="{{group.items}}" wx:key="id" wx:for-item="item" class="card card-tight" bindtap="goGame" data-id="{{item.id}}">
+        <view class="row">
+          <text class="strong">{{item.venueName}}</text>
+          <text class="tag {{item.statusClass}}">{{item.statusText}}</text>
+        </view>
+        <view class="sub">{{item.timeText}} 开球 · {{item.teamSize}} 人制 · {{item.relationText}}</view>
+        <view class="sub">报名 {{item.confirmedCount}} 人 · 已到场 {{item.arrivedCount}} 人</view>
+        <view wx:if="{{item.outcomeText}}" class="sub">{{item.outcomeText}}</view>
+        <view wx:if="{{item.pendingAppealCount > 0}}" class="tag tag-orange">有 {{item.pendingAppealCount}} 条申诉待裁决，点进去处理</view>
+      </view>
+    </view>
+  </block>
+</view>

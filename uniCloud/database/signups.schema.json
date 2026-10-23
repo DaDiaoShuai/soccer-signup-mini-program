@@ -1,0 +1,28 @@
+{
+  "bsonType": "object",
+  "description": "报名记录",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "gameId": {
+      "bsonType": "string",
+      "description": ""
+    },
+    "userId": {
+      "bsonType": "string",
+      "description": ""
+    },
+    "type": {
+      "bsonType": "string",
+      "description": ""
+    },
+    "status": {
+      "bsonType": "string",
+      "description": ""
+    }
+  }
+}

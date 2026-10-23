@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="title">鸽记录申诉</view>
+  <view class="sub">自动判定可能有特殊情况（没电、定位没打开等），写明理由提交给本场发起人裁决</view>
+
+  <view wx:if="{{loading}}" class="card gap"><text class="sub">加载中…</text></view>
+  <view wx:elif="{{notFound}}" class="card gap"><text class="sub">这条鸽记录不存在。</text></view>
+
+  <block wx:else>
+    <view class="card gap">
+      <view class="section-title">关联场次</view>
+      <view class="row"><text class="strong">{{game.location.name}}</text><text class="tag">{{game.teamSize}} 人制</text></view>
+      <view class="sub">{{gameTimeText}} 开球 · 发起人 {{game.organizerNickname}}</view>
+      <view class="list-row"><text>记鸽时间</text><text class="sub">{{recordTimeText}}（结算时产生）</text></view>
+      <view class="list-row"><text>记录状态</text><text class="tag {{recordStatusClass}}">{{recordStatusText}}</text></view>
+      <view wx:if="{{record.status === 'revoked'}}" class="sub">撤销说明：{{record.revokeReason}}（由发起人撤销并留痕）</view>
+      <view wx:if="{{record.status === 'redeemed'}}" class="sub">这条记录已被连续守约抵消，不再计入有效鸽。</view>
+    </view>
+
+    <view class="card">
+      <view class="section-title">申诉状态</view>
+      <view class="row"><text>当前状态</text><text class="tag {{appealStatusClass}}">{{appealStatusText}}</text></view>
+      <view wx:if="{{appeal}}" class="gap">
+        <view class="sub">我的理由：{{appeal.reason}}</view>
+        <view wx:if="{{appeal.status !== 'pending'}}" class="sub">裁决说明：{{appeal.decisionNote || '（无）'}}</view>
+      </view>
+
+      <view wx:if="{{canSubmit}}" class="gap">
+        <text class="label">{{appeal ? '重新填写申诉理由' : '申诉理由'}}</text>
+        <textarea class="textarea" placeholder="如：手机没电，到了现场但没签上到，有队友可作证" value="{{reason}}" bindinput="onReasonInput" maxlength="200"></textarea>
+        <button class="btn" bindtap="submit" disabled="{{submitting}}">提交给发起人</button>
+      </view>
+      <view wx:elif="{{record.status === 'active'}}" class="sub gap">申诉已提交，等本场发起人裁决，结果会通过通知告诉你。</view>
+    </view>
+
+    <button class="btn-plain" bindtap="backToGame">查看这场球局</button>
+    <button class="btn-grey gap" bindtap="backProfile">回我的信誉</button>
+  </block>
+</view>

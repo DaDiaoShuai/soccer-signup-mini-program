@@ -1,0 +1,24 @@
+{
+  "bsonType": "object",
+  "description": "鸽记录（只能由 settle 结算产生）",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "gameId": {
+      "bsonType": "string",
+      "description": ""
+    },
+    "userId": {
+      "bsonType": "string",
+      "description": ""
+    },
+    "status": {
+      "bsonType": "string",
+      "description": ""
+    }
+  }
+}

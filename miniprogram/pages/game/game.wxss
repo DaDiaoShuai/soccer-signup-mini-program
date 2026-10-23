@@ -1,0 +1,4 @@
+/* pages/game/game.wxss */
+.game-map {
+  height: 480rpx;
+}

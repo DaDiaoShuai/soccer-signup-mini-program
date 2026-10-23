@@ -1,0 +1,28 @@
+{
+  "bsonType": "object",
+  "description": "签到记录",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "gameId": {
+      "bsonType": "string",
+      "description": ""
+    },
+    "userId": {
+      "bsonType": "string",
+      "description": ""
+    },
+    "checkinAt": {
+      "bsonType": "timestamp",
+      "description": ""
+    },
+    "method": {
+      "bsonType": "string",
+      "description": ""
+    }
+  }
+}

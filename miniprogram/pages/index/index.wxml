@@ -1,0 +1,58 @@
+<view class="container">
+  <view class="title">附近球局</view>
+  <view class="sub">先看人数再决定来不来 —— 报名、已到场分开计数</view>
+
+  <button class="btn gap" bindtap="goCreate">+ 发起球局</button>
+
+  <view class="segmented">
+    <view class="segmented-item {{viewMode === 'list' ? 'segmented-item-active' : ''}}" data-mode="list" bindtap="switchView">列表</view>
+    <view class="segmented-item {{viewMode === 'map' ? 'segmented-item-active' : ''}}" data-mode="map" bindtap="switchView">地图</view>
+  </view>
+
+  <view wx:if="{{loading}}" class="card gap"><text class="sub">加载中…</text></view>
+  <view wx:elif="{{games.length === 0}}" class="card gap"><text class="sub">暂无球局，来发起第一场吧</text></view>
+
+  <!-- 列表视图 -->
+  <block wx:elif="{{viewMode === 'list'}}">
+    <view wx:for="{{games}}" wx:key="id" class="card gap" bindtap="goGame" data-id="{{item.id}}">
+      <view class="row">
+        <text class="title">{{item.venueName}}</text>
+        <text class="tag {{item.phaseTagClass}}">{{item.phaseText}}</text>
+      </view>
+      <view class="sub">{{item.timeText}} 开球 · {{item.teamSize}} 人制</view>
+      <view class="metric-row">
+        <view class="metric"><text class="metric-num metric-num-dark">{{item.confirmedCount}}</text><text class="metric-label">确定报名</text></view>
+        <view class="metric"><text class="metric-num metric-num-dark">{{item.watchingCount}}</text><text class="metric-label">观望</text></view>
+        <view class="metric"><text class="metric-num">{{item.arrivedCount}}</text><text class="metric-label">已到场</text></view>
+      </view>
+      <view class="progress"><view class="progress-bar {{item.phase === 'playing' ? 'progress-bar-orange' : ''}}" style="width: {{item.progressPercent}}%"></view></view>
+      <view class="sub gap">{{item.statusText}}（成局门槛 {{item.threshold}} 人）</view>
+      <view wx:if="{{item.note}}" class="sub">备注：{{item.note}}</view>
+    </view>
+  </block>
+
+  <!-- 地图视图：打点的是球局，颜色即状态 -->
+  <block wx:elif="{{viewMode === 'map'}}">
+    <map
+      class="map index-map gap"
+      latitude="{{mapLatitude}}"
+      longitude="{{mapLongitude}}"
+      scale="{{mapScale}}"
+      markers="{{markers}}"
+      bindmarkertap="onMarkerTap"
+      show-location
+    ></map>
+    <view class="sub gap">灰 = 还差人成局 · 绿 = 已成局 · 橙 = 正在踢可接波</view>
+
+    <view wx:if="{{selectedGame}}" class="card gap" bindtap="goSelected">
+      <view class="row">
+        <text class="title">{{selectedGame.venueName}}</text>
+        <text class="tag {{selectedGame.phaseTagClass}}">{{selectedGame.phaseText}}</text>
+      </view>
+      <view class="sub">{{selectedGame.timeText}} 开球 · {{selectedGame.teamSize}} 人制</view>
+      <view class="gap"><text>报名 {{selectedGame.confirmedCount}} 人 · 观望 {{selectedGame.watchingCount}} 人 · 已到场 {{selectedGame.arrivedCount}} 人</text></view>
+      <view class="sub">{{selectedGame.statusText}}，点此进详情</view>
+      <button class="btn-plain gap" catchtap="closeSelected">关闭简卡</button>
+    </view>
+  </block>
+</view>

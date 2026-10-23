@@ -1,0 +1,1 @@
+{"dependencies":{"wx-server-sdk":"~2.6.3"},"description":"踢球报名小程序业务云函数：球局/报名/签到/信誉档案/申诉撤销，身份取 OPENID，合并查重与围栏复算在服务端","main":"index.js","name":"api","version":"1.0.0"}

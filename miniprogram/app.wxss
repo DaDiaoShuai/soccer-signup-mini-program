@@ -1,0 +1,232 @@
+/* app.wxss —— 全局共享样式（第三阶段统一）
+ * 口径：干净、信息优先。状态色与 PRD 一致：
+ * 灰 = 还差人成局 / 未开始，绿 = 已成局 / 成功，橙 = 正在踢 / 待处理，红 = 危险 / 鸽。
+ */
+page {
+  background: #f4f5f4;
+  color: #222;
+  font-size: 28rpx;
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+.container {
+  padding: 24rpx;
+}
+
+/* ---------- 卡片与文本 ---------- */
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+}
+.card-tight {
+  padding: 18rpx 24rpx;
+}
+.title {
+  font-size: 34rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+}
+.section-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}
+.sub {
+  color: #666;
+  font-size: 26rpx;
+  line-height: 1.5;
+}
+.muted {
+  color: #999;
+  font-size: 24rpx;
+}
+.strong {
+  font-weight: 600;
+}
+
+/* ---------- 标签（状态色） ---------- */
+.tag {
+  display: inline-block;
+  padding: 2rpx 12rpx;
+  border-radius: 999rpx;
+  background: #ffe9a8;
+  color: #8a6100;
+  font-size: 22rpx;
+  margin-left: 10rpx;
+  vertical-align: middle;
+}
+.tag-grey {
+  background: #eceff1;
+  color: #5f6b73;
+}
+.tag-green {
+  background: #dff3e6;
+  color: #146c3c;
+}
+.tag-orange {
+  background: #fdeeda;
+  color: #a85b12;
+}
+.tag-red {
+  background: #fdeceb;
+  color: #b03a2e;
+}
+.tag-gold {
+  background: #ffe9a8;
+  color: #8a6100;
+}
+
+/* ---------- 按钮 ---------- */
+.btn {
+  background: #1a7f4b;
+  color: #fff;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+}
+.btn-plain {
+  background: #fff;
+  color: #1a7f4b;
+  border: 1rpx solid #1a7f4b;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+}
+.btn-warn {
+  background: #fff;
+  color: #c0392b;
+  border: 1rpx solid #c0392b;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+}
+.btn-grey {
+  background: #eceff1;
+  color: #5f6b73;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+}
+.btn[disabled] {
+  opacity: 0.55;
+}
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+.btn-row button {
+  margin: 0;
+  flex: 1 1 40%;
+}
+
+/* ---------- 人数大数字 / 指标 ---------- */
+.metric-row {
+  display: flex;
+  margin-top: 16rpx;
+}
+.metric {
+  flex: 1;
+  text-align: center;
+}
+.metric-num {
+  display: block;
+  font-size: 52rpx;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1a7f4b;
+}
+.metric-num-dark {
+  color: #222;
+}
+.metric-label {
+  display: block;
+  color: #666;
+  font-size: 24rpx;
+  margin-top: 4rpx;
+}
+
+/* ---------- 进度条 ---------- */
+.progress {
+  height: 14rpx;
+  background: #eceff1;
+  border-radius: 999rpx;
+  overflow: hidden;
+  margin-top: 12rpx;
+}
+.progress-bar {
+  height: 100%;
+  background: #1a7f4b;
+  border-radius: 999rpx;
+}
+.progress-bar-orange {
+  background: #e67e22;
+}
+
+/* ---------- 分段切换（列表 / 地图） ---------- */
+.segmented {
+  display: flex;
+  background: #eceff1;
+  border-radius: 12rpx;
+  padding: 6rpx;
+  margin-top: 16rpx;
+}
+.segmented-item {
+  flex: 1;
+  text-align: center;
+  padding: 10rpx 0;
+  font-size: 26rpx;
+  color: #5f6b73;
+  border-radius: 8rpx;
+}
+.segmented-item-active {
+  background: #fff;
+  color: #1a7f4b;
+  font-weight: 600;
+}
+
+/* ---------- 列表行 / 表单 ---------- */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.list-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.input,
+.textarea,
+.picker {
+  background: #f7f7f7;
+  border-radius: 10rpx;
+  padding: 16rpx;
+  margin-bottom: 12rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.textarea {
+  min-height: 140rpx;
+}
+.label {
+  display: block;
+  color: #555;
+  font-size: 26rpx;
+  margin-bottom: 10rpx;
+}
+.field {
+  margin-bottom: 28rpx;
+}
+.gap {
+  margin-top: 16rpx;
+}
+.empty {
+  text-align: center;
+  color: #999;
+  font-size: 26rpx;
+  padding: 36rpx 0;
+}
+.map {
+  width: 100%;
+  border-radius: 16rpx;
+}

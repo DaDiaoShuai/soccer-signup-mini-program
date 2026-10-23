@@ -1,0 +1,1 @@
+{"dependencies":{},"description":"踢球报名小程序业务云函数（uniCloud 版）：URL 化 HTTPS 入口 + 自建会话鉴权 + 每小时定时结算，业务规则与 rules.js 口径一致","main":"index.js","name":"api","version":"1.0.0"}

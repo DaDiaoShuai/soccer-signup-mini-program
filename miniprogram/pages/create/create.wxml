@@ -1,0 +1,45 @@
+<view class="container">
+  <view class="title">发起球局</view>
+  <view class="sub">地点、时间都不固定，临时发起即可；同场 2 小时内的局会自动合并</view>
+
+  <!-- 合并提示（命中已有同场局时展示） -->
+  <view wx:if="{{mergeTip}}" class="card gap merge-box">
+    <view class="title">已有一场相同的局</view>
+    <view class="sub">{{mergeTip.text}}</view>
+    <button class="btn gap" bindtap="joinMerged">加入这场</button>
+    <button class="btn-plain gap" bindtap="dismissMerge">放弃发起</button>
+  </view>
+
+  <view wx:else class="card gap">
+    <view class="field">
+      <text class="label">球场（演示数据，可改坐标）</text>
+      <picker range="{{venues}}" range-key="name" value="{{venueIndex}}" bindchange="onVenueChange">
+        <view class="picker">{{venueName || '请选择球场'}}</view>
+      </picker>
+      <input class="input" placeholder="球场名称" value="{{venueName}}" data-field="venueName" bindinput="onInput" />
+      <input class="input" placeholder="纬度 latitude" type="digit" value="{{latitude}}" data-field="latitude" bindinput="onInput" />
+      <input class="input" placeholder="经度 longitude" type="digit" value="{{longitude}}" data-field="longitude" bindinput="onInput" />
+    </view>
+
+    <view class="field">
+      <text class="label">开球时间</text>
+      <picker mode="date" value="{{date}}" bindchange="onDateChange"><view class="picker">{{date}}</view></picker>
+      <picker mode="time" value="{{time}}" bindchange="onTimeChange"><view class="picker">{{time}}</view></picker>
+    </view>
+
+    <view class="field">
+      <text class="label">赛制（只是每队人数，总人数不设上限）</text>
+      <picker range="{{teamSizeOptions}}" value="{{teamSizeIndex}}" bindchange="onTeamSizeChange">
+        <view class="picker">{{teamSizeOptions[teamSizeIndex]}}</view>
+      </picker>
+      <input wx:if="{{teamSizeIndex === 3}}" class="input" placeholder="每队人数，如 6" type="number" value="{{customTeamSize}}" data-field="customTeamSize" bindinput="onInput" />
+    </view>
+
+    <view class="field">
+      <text class="label">备注</text>
+      <input class="input" placeholder="如球衣颜色、费用说明（可空）" value="{{note}}" data-field="note" bindinput="onInput" />
+    </view>
+
+    <button class="btn gap" bindtap="submit">发起</button>
+  </view>
+</view>

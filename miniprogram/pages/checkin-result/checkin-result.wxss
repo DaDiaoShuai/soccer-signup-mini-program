@@ -1,0 +1,20 @@
+/* pages/checkin-result/checkin-result.wxss */
+.result-card {
+  text-align: center;
+}
+.result-icon {
+  width: 96rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  border-radius: 50%;
+  margin: 12rpx auto 0;
+  font-size: 52rpx;
+  font-weight: 700;
+  color: #fff;
+}
+.result-ok {
+  background: #1a7f4b;
+}
+.result-fail {
+  background: #e67e22;
+}

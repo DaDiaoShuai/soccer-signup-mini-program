@@ -1,0 +1,28 @@
+{
+  "bsonType": "object",
+  "description": "申诉",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "pigeonRecordId": {
+      "bsonType": "string",
+      "description": ""
+    },
+    "gameId": {
+      "bsonType": "string",
+      "description": ""
+    },
+    "userId": {
+      "bsonType": "string",
+      "description": ""
+    },
+    "status": {
+      "bsonType": "string",
+      "description": ""
+    }
+  }
+}

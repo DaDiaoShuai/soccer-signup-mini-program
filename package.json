@@ -1,0 +1,9 @@
+{
+  "description": "踢球报名微信小程序（第三阶段：8 个页面 + 两张地图已完成，默认仍走本地 mock）",
+  "name": "soccer-signup-mini-program",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  },
+  "version": "0.3.0"
+}

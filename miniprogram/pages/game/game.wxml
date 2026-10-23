@@ -1,0 +1,86 @@
+<view class="container">
+  <view wx:if="{{loading}}" class="card"><text class="sub">加载中…</text></view>
+  <view wx:elif="{{!game}}" class="card"><text class="sub">球局不存在</text></view>
+
+  <block wx:else>
+    <view class="card">
+      <view class="row">
+        <text class="title">{{game.location.name}}</text>
+        <text class="tag">{{game.teamSize}} 人制</text>
+      </view>
+      <view class="sub">{{timeText}} 开球 · 发起人 {{game.organizerNickname}}</view>
+      <view wx:if="{{game.note}}" class="sub gap">备注：{{game.note}}</view>
+
+      <view class="gap">
+        <text>确定报名 {{game.stats.confirmedCount}} 人 / 门槛 {{game.stats.threshold}} 人</text>
+        <text class="tag tag-green" wx:if="{{game.stats.formed}}">已成局</text>
+        <text class="tag tag-grey" wx:else>还差 {{game.stats.threshold - game.stats.confirmedCount}} 人</text>
+      </view>
+      <view class="progress"><view class="progress-bar" style="width: {{progressPercent}}%"></view></view>
+      <view class="sub gap">观望 {{game.stats.watchingCount}} 人（人数不设上限）</view>
+
+      <view class="btn-row gap">
+        <button class="btn" bindtap="doSignup" wx:if="{{myState !== 'confirmed'}}">报名</button>
+        <button class="btn-plain" bindtap="doWatch" wx:if="{{myState !== 'watching'}}">观望</button>
+        <button class="btn-warn" bindtap="doCancel" wx:if="{{myState === 'confirmed' || myState === 'watching'}}">取消（结算前免鸽）</button>
+        <button class="btn" bindtap="doCheckin">到场签到</button>
+      </view>
+      <view class="sub" wx:if="{{myState}}">我的状态：{{myState === 'confirmed' ? '已报名' : myState === 'watching' ? '观望中' : '已取消'}}</view>
+    </view>
+
+    <!-- 到场地图：围栏圈 + 到场者聚合点位，未到者只报人数不显示位置 -->
+    <view class="card">
+      <view class="section-title">到场实况</view>
+      <view class="metric-row">
+        <view class="metric"><text class="metric-num">{{arrivedCount}}</text><text class="metric-label">已到场</text></view>
+        <view class="metric"><text class="metric-num metric-num-dark">{{fullTeamCount}}</text><text class="metric-label">已凑满队伍</text></view>
+        <view class="metric"><text class="metric-num metric-num-dark">{{neededForNextTeam}}</text><text class="metric-label">下一队还差</text></view>
+      </view>
+      <map
+        class="map game-map gap"
+        latitude="{{mapLatitude}}"
+        longitude="{{mapLongitude}}"
+        scale="15"
+        markers="{{mapMarkers}}"
+        circles="{{mapCircles}}"
+        show-location
+      ></map>
+      <view class="sub gap">圆圈为签到围栏（半径 {{game.fenceRadiusMeters}} 米），绿色点位为球场，已到场队友聚合显示在这里。还有 {{notArrivedCount}} 人已报名未到（不显示他们的位置）。</view>
+    </view>
+
+    <view class="card">
+      <view class="section-title">接波队列（按到场顺序组队）</view>
+      <view wx:if="{{teamsView.length === 0}}" class="sub">暂无到场签到</view>
+      <view wx:for="{{teamsView}}" wx:key="index" class="list-row">
+        <view>
+          <text>第 {{item.index}} 队 · {{item.statusText}} · {{item.size}} 人</text>
+          <text class="sub" wx:if="{{item.needed > 0}}">（还差 {{item.needed}} 人满队）</text>
+          <view class="sub">{{item.memberNames}}</view>
+        </view>
+        <text class="tag {{item.status === 'playing' ? 'tag-orange' : item.needed > 0 ? 'tag-grey' : 'tag-green'}}">{{item.statusText}}</text>
+      </view>
+    </view>
+
+    <view wx:if="{{isOrganizer && pendingAppeals.length > 0}}" class="card">
+      <view class="section-title">待裁决申诉（{{pendingAppeals.length}}）</view>
+      <view wx:for="{{pendingAppeals}}" wx:key="id" class="gap">
+        <view class="row"><text class="strong">{{item.nickname}}</text><text class="tag tag-orange">{{item.statusText}}</text></view>
+        <view class="sub">理由：{{item.reason}}</view>
+        <view class="sub">提交于 {{item.createdText}}</view>
+        <view class="btn-row gap">
+          <button class="btn" data-id="{{item.id}}" bindtap="approveAppeal">撤销这条鸽记录</button>
+          <button class="btn-warn" data-id="{{item.id}}" bindtap="rejectAppeal">驳回</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="section-title">报名名单</view>
+      <view wx:if="{{signupList.length === 0}}" class="sub">暂无报名</view>
+      <view wx:for="{{signupList}}" wx:key="userId" class="list-row">
+        <text>{{item.nickname}}<text class="tag tag-gold" wx:if="{{item.pigeonLabel}}">{{item.pigeonLabel}}</text></text>
+        <text class="sub">{{item.typeText}}{{item.arrived ? ' · 已到场' : ''}}</text>
+      </view>
+    </view>
+  </block>
+</view>

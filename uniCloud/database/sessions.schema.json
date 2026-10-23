@@ -1,0 +1,24 @@
+{
+  "bsonType": "object",
+  "description": "会话（自建鉴权 token → openid，云函数专用）",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "token": {
+      "bsonType": "string",
+      "description": ""
+    },
+    "openid": {
+      "bsonType": "string",
+      "description": ""
+    },
+    "expiresAt": {
+      "bsonType": "timestamp",
+      "description": ""
+    }
+  }
+}

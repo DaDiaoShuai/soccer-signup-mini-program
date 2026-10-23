@@ -1,0 +1,24 @@
+{
+  "bsonType": "object",
+  "description": "用户与信誉（_id = openid）",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "openid": {
+      "bsonType": "string",
+      "description": ""
+    },
+    "nickname": {
+      "bsonType": "string",
+      "description": ""
+    },
+    "credit": {
+      "bsonType": "object",
+      "description": ""
+    }
+  }
+}

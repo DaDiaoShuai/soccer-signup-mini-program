@@ -1,0 +1,7 @@
+/* pages/profile/profile.wxss */
+.record-btn {
+  font-size: 24rpx;
+  padding: 0 20rpx;
+  line-height: 2;
+  margin: 0;
+}

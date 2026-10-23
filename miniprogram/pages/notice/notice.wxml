@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="title">消息</view>
+  <view class="sub">球局变更、结算结果、成局提醒都会落到这里</view>
+
+  <!-- 落地内容：订阅消息点进来先看这一块 -->
+  <view wx:if="{{landing}}" class="card gap">
+    <view class="row"><text class="section-title">{{landing.title}}</text><text class="tag {{landing.type === 'settlement_pigeon' ? 'tag-red' : landing.type === 'game_change' || landing.type === 'appeal_decision' ? 'tag-orange' : 'tag-green'}}">{{landing.typeTitle}}</text></view>
+    <view class="sub">{{landing.content}}</view>
+    <view wx:if="{{game}}" class="sub gap">关联球局：{{game.location.name}} · {{gameTimeText}} 开球 · 确定报名 {{game.stats.confirmedCount}} 人 · 已到场 {{game.stats.arrivedCount}} 人</view>
+    <view class="btn-row gap">
+      <button class="btn" wx:if="{{landing.canAppeal}}" bindtap="goAppeal">去申诉</button>
+      <button class="btn-plain" wx:if="{{landing.pigeonRecordId && landing.type === 'appeal_decision'}}" bindtap="goAppeal">查看申诉与裁决</button>
+      <button class="btn-plain" wx:if="{{landing.gameId}}" bindtap="goGame">查看球局详情</button>
+      <button class="btn-grey" bindtap="goProfile">我的信誉</button>
+    </view>
+  </view>
+
+  <view class="section-title gap">历史通知</view>
+  <view wx:if="{{loading}}" class="card"><text class="sub">加载中…</text></view>
+  <view wx:elif="{{notifications.length === 0}}" class="card"><view class="empty">暂无通知</view></view>
+  <view wx:else class="card card-tight">
+    <view wx:for="{{notifications}}" wx:key="id" class="list-row notice-row" data-id="{{item.id}}" bindtap="tapNotification">
+      <view class="notice-main">
+        <view><text class="strong">{{item.title}}</text><text wx:if="{{!item.read}}" class="tag tag-red">未读</text></view>
+        <view class="sub notice-content">{{item.content}}</view>
+        <view class="muted">{{item.createdText}}</view>
+      </view>
+      <text class="tag {{item.typeClass}}">{{item.typeTitle}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+/* pages/notice/notice.wxss */
+.notice-row {
+  align-items: flex-start;
+}
+.notice-main {
+  flex: 1;
+  margin-right: 16rpx;
+}
+.notice-content {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "_id": "g1",
+    "organizerId": "u1",
+    "location": {
+      "name": "市体育中心足球场",
+      "poiId": "venue_a",
+      "latitude": 31.2304,
+      "longitude": 121.4737
+    },
+    "startTime": 1792783800000,
+    "teamSize": 5,
+    "note": "自带深浅两色球衣，场地费 AA",
+    "status": "recruiting",
+    "settled": false,
+    "settledAt": null,
+    "fenceRadiusMeters": 500,
+    "createdAt": 1792762200000,
+    "updatedAt": 1792762200000
+  },
+  {
+    "_id": "g2",
+    "organizerId": "u3",
+    "location": {
+      "name": "滨江公园笼式足球场",
+      "poiId": "venue_b",
+      "latitude": 31.2401,
+      "longitude": 121.4902
+    },
+    "startTime": 1792791900000,
+    "teamSize": 8,
+    "note": "晚场慢节奏，欢迎新人",
+    "status": "recruiting",
+    "settled": false,
+    "settledAt": null,
+    "fenceRadiusMeters": 500,
+    "createdAt": 1792773900000,
+    "updatedAt": 1792773900000
+  }
+]

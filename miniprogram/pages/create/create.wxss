@@ -1,0 +1,4 @@
+/* pages/create/create.wxss —— 表单控件样式已统一到 app.wxss，本页只留合并提示框 */
+.merge-box {
+  border: 2rpx solid #e6a817;
+}

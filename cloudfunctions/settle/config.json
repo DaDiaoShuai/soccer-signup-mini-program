@@ -1,0 +1,1 @@
+{"permissions":{"openapi":[]},"triggers":[{"config":"0 */5 * * * * *","name":"settleTimer","type":"timer"}]}

@@ -1,0 +1,16 @@
+<view class="container">
+  <view wx:if="{{loading}}" class="card"><text class="sub">加载中…</text></view>
+
+  <block wx:else>
+    <view class="card result-card">
+      <view class="result-icon {{ok ? 'result-ok' : 'result-fail'}}">{{ok ? '✓' : '!'}}</view>
+      <view class="title gap">{{ok ? '签到成功' : '签到未成功'}}</view>
+      <view wx:if="{{game}}" class="sub">{{game.location.name}} · {{timeText}} 开球</view>
+      <view wx:if="{{teamText}}" class="tag tag-green gap">{{teamText}}</view>
+      <view class="sub gap">{{detailText}}</view>
+    </view>
+
+    <button class="btn" bindtap="backToGame">返回球局详情</button>
+    <button class="btn-plain gap" bindtap="backHome">回首页看看其他局</button>
+  </block>
+</view>

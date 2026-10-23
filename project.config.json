@@ -1,0 +1,47 @@
+{
+  "appid": "touristappid",
+  "compileType": "miniprogram",
+  "condition": {},
+  "description": "踢球报名小程序 —— 约球报名、定位签到与鸽王信誉（后端 uniCloud 免费方案）",
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "libVersion": "3.5.0",
+  "miniprogramRoot": "miniprogram/",
+  "packOptions": {
+    "ignore": [
+      {
+        "type": "folder",
+        "value": "tests"
+      }
+    ],
+    "include": []
+  },
+  "projectname": "soccer-signup-mini-program",
+  "setting": {
+    "babelSetting": {
+      "disablePlugins": [],
+      "ignore": [],
+      "outputPath": ""
+    },
+    "compileWorklet": false,
+    "condition": false,
+    "disableSWC": true,
+    "disableUseStrict": false,
+    "enhance": true,
+    "es6": true,
+    "localPlugins": false,
+    "minified": true,
+    "minifyWXML": true,
+    "minifyWXSS": true,
+    "packNpmManually": false,
+    "postcss": true,
+    "swc": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "urlCheck": false,
+    "useCompilerPlugins": false
+  },
+  "srcMiniprogramRoot": "miniprogram/"
+}

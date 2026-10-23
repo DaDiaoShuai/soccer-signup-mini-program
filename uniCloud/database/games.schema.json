@@ -1,0 +1,32 @@
+{
+  "bsonType": "object",
+  "description": "球局",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "organizerId": {
+      "bsonType": "string",
+      "description": ""
+    },
+    "location": {
+      "bsonType": "object",
+      "description": ""
+    },
+    "startTime": {
+      "bsonType": "timestamp",
+      "description": ""
+    },
+    "teamSize": {
+      "bsonType": "int",
+      "description": ""
+    },
+    "status": {
+      "bsonType": "string",
+      "description": ""
+    }
+  }
+}

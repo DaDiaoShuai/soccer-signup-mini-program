@@ -1,0 +1,44 @@
+<view class="container">
+  <view wx:if="{{loading}}" class="card"><text class="sub">加载中…</text></view>
+
+  <block wx:elif="{{profile}}">
+    <view class="card">
+      <view class="row">
+        <text class="title">{{profile.nickname}}</text>
+        <text class="tag tag-gold" wx:if="{{profile.pigeon.label}}">{{profile.pigeon.label}}</text>
+      </view>
+      <view class="sub" wx:if="{{profile.isNewcomer}}">新人（确定报名不足 5 场，暂不计算守约率）</view>
+      <view class="sub" wx:else>守约率 {{profile.attendanceRate}}%</view>
+      <view class="btn-row gap">
+        <button class="btn-plain" bindtap="goNotice">消息通知</button>
+        <button class="btn-plain" bindtap="goMy">我的球局</button>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="section-title">信誉档案</view>
+      <view class="list-row"><text>总出席</text><text>{{profile.totalAttendance}} 场</text></view>
+      <view class="list-row"><text>累计确定报名</text><text>{{profile.totalConfirmedSignups}} 场</text></view>
+      <view class="list-row"><text>历史鸽</text><text>{{profile.historyPigeons}} 次</text></view>
+      <view class="list-row"><text>已抵消</text><text>{{profile.redeemedPigeons}} 次</text></view>
+      <view class="list-row"><text>已撤销</text><text>{{profile.revokedPigeons}} 次</text></view>
+      <view class="list-row"><text>当前有效鸽</text><text class="strong">{{profile.effectivePigeons}} 次</text></view>
+      <view class="list-row"><text>赎鸽进度（连续守约）</text><text>{{profile.streakProgress}} / {{profile.redeemRequired}} 场</text></view>
+      <view class="progress"><view class="progress-bar" style="width: {{profile.streakProgress * 20}}%"></view></view>
+      <view class="sub gap">规则：连续守约 {{profile.redeemRequired}} 场抵消最早 1 次鸽；中途再鸽进度清零；结算前取消不算鸽。</view>
+    </view>
+
+    <view class="card">
+      <view class="section-title">我的鸽记录</view>
+      <view wx:if="{{records.length === 0}}" class="sub">暂无鸽记录，继续保持。</view>
+      <view wx:for="{{records}}" wx:key="id" class="list-row">
+        <view>
+          <text class="strong">{{item.venueName}}</text>
+          <text class="tag {{item.statusClass}}">{{item.statusText}}</text>
+          <view class="sub">{{item.timeText}} 开球<text wx:if="{{item.appealText}}"> · {{item.appealText}}</text></view>
+        </view>
+        <button class="btn-plain record-btn" data-id="{{item.id}}" data-game-id="{{item.gameId}}" bindtap="goAppeal">{{item.actionText}}</button>
+      </view>
+    </view>
+  </block>
+</view>
